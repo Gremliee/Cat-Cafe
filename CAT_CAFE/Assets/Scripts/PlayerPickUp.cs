@@ -12,11 +12,11 @@ public class PlayerPickUp : MonoBehaviour
     [SerializeField] float yOffset;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && isPickup == false)
         {
             isTrigger = true;
 
-        }
+        } 
 
         // run  a public function from the player script to tell player they are holding something
     }
@@ -35,15 +35,22 @@ public class PlayerPickUp : MonoBehaviour
         }
         if (isPickup == true)
         {
+            GetComponent<Collider2D>().enabled = false;
             gameObject.transform.position = ItemFinalPosition;
             PlayerPosition = GameObject.FindWithTag("Player").transform.position;
             ItemFinalPosition = new Vector2(PlayerPosition.x + xOffset, PlayerPosition.y + yOffset);
             FindObjectOfType<PlayerMovement>().PickedUp();
+
+        }
+        //else
+        {
+            //GetComponent<Collider2D>().enabled = true;
         }
     }
 
     public void NoPickUp()
     {
         isPickup = false;
+        Debug.Log("das");
     }
 }

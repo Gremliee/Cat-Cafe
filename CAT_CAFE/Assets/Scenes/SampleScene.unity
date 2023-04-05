@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 1358636311}
   - component: {fileID: 1358636310}
   - component: {fileID: 1358636312}
+  - component: {fileID: 1358636313}
   m_Layer: 19
   m_Name: CounterTrigger
   m_TagString: Untagged
@@ -366,11 +367,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1 &1410001890 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8363753801375937205, guid: 145be6c7338c03b47b8c412b5d7fccb9, type: 3}
-  m_PrefabInstance: {fileID: 8363753800312518275}
+--- !u!114 &1358636313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358636309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25b20b70bbdab3c41930e9cf8e9b75d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counterPosition: {fileID: 1808348301}
+  item: {fileID: 0}
 --- !u!1 &1410766597
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +475,6 @@ GameObject:
   - component: {fileID: 1808348304}
   - component: {fileID: 1808348303}
   - component: {fileID: 1808348305}
-  - component: {fileID: 1808348302}
   m_Layer: 0
   m_Name: Counter
   m_TagString: Untagged
@@ -473,20 +482,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1808348302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1808348301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25b20b70bbdab3c41930e9cf8e9b75d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  counterPosition: {fileID: 1808348301}
-  item: {fileID: 1410001890}
 --- !u!212 &1808348303
 SpriteRenderer:
   m_ObjectHideFlags: 0

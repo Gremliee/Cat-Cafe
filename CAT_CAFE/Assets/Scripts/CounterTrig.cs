@@ -16,6 +16,16 @@ public class CounterTrig : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        detected = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        detected = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -23,15 +33,13 @@ public class CounterTrig : MonoBehaviour
         if (detected == true && Input.GetKeyDown(KeyCode.E))
         {
             item = GameObject.FindWithTag("Item");
-            item.transform.position = counterPosition.transform.position;
             FindObjectOfType<PlayerPickUp>().NoPickUp();
+            item.transform.position = counterPosition.transform.position;
+            
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        detected = true;
-    }
+
 
     public GameObject CounterPosition()
     {
