@@ -29,13 +29,17 @@ public class CounterTrig : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //If detected = true, and the key E is down
-        if (detected == true && Input.GetKeyDown(KeyCode.E))
+        //If detected = true, and the key Q is down
+        if (detected == true && Input.GetKeyDown(KeyCode.Q) && FindObjectOfType<PlayerPickUp>().isPickup == true)
         {
             item = GameObject.FindWithTag("Item");
             FindObjectOfType<PlayerPickUp>().NoPickUp();
             item.transform.position = counterPosition.transform.position;
-            
+            FindObjectOfType<PlayerPickUp>().isPickup = false;
+        }
+        if (detected == true && FindObjectOfType<PlayerPickUp>().isPickup == false && Input.GetKeyDown(KeyCode.E))
+        {
+            FindObjectOfType<PlayerPickUp>().isPickup = true;
         }
     }
 
