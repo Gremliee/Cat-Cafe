@@ -22,9 +22,18 @@ public class WindowTrigger : MonoBehaviour
         {
             item = GameObject.FindWithTag("Item");
             FindObjectOfType<PlayerPickUp>().isPickup = false;
-            Destroy(item);
+            FindObjectOfType<Money>().YeetedOutWindow();
+
+            //Destroy(item);
+
         }
     }
+
+    public void DestroyItem()
+    {
+        Destroy(item);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         detected = true;
