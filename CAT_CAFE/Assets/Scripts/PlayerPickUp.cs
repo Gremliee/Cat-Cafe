@@ -10,11 +10,13 @@ public class PlayerPickUp : MonoBehaviour
     Vector2 ItemFinalPosition;
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Player" && isPickup == false)
         {
             isTrigger = true;
+            Debug.Log("das no good");
 
         } 
 
@@ -40,11 +42,6 @@ public class PlayerPickUp : MonoBehaviour
             PlayerPosition = GameObject.FindWithTag("Player").transform.position;
             ItemFinalPosition = new Vector2(PlayerPosition.x + xOffset, PlayerPosition.y + yOffset);
             FindObjectOfType<PlayerMovement>().PickedUp();
-
-        }
-        //else
-        {
-            //GetComponent<Collider2D>().enabled = true;
         }
     }
 
@@ -53,4 +50,6 @@ public class PlayerPickUp : MonoBehaviour
         isPickup = false;
         Debug.Log("das");
     }
+
+
 }

@@ -9,6 +9,7 @@ public class CounterTrig : MonoBehaviour
     //Store counter position in a variable
     [SerializeField] GameObject counterPosition;
     [SerializeField] GameObject item;
+    [SerializeField] Sprite toppings;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,10 @@ public class CounterTrig : MonoBehaviour
             FindObjectOfType<PlayerPickUp>().NoPickUp();
             item.transform.position = counterPosition.transform.position;
             FindObjectOfType<PlayerPickUp>().isPickup = false;
+            if (FindObjectOfType<SpriteChange>().isChanged == false && tag != "RegularCounter")
+            {
+                ChangeSprite();
+            }
         }
         if (detected == true && FindObjectOfType<PlayerPickUp>().isPickup == false && Input.GetKeyDown(KeyCode.E))
         {
@@ -43,11 +48,23 @@ public class CounterTrig : MonoBehaviour
         }
     }
 
-
-
     public GameObject CounterPosition()
     {
         return counterPosition;
     }
     //a public function that returns position of counter
+
+    public Sprite Yeet()
+    {
+        return toppings;
+    }
+
+    private void ChangeSprite()
+    {
+
+        FindObjectOfType<SpriteChange>().ItemChange(toppings);
+
+    }
+
+
 }
