@@ -374,6 +374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Strawbeery
       objectReference: {fileID: 0}
+    - target: {fileID: 816771878465940965, guid: b6397cad46fb6c64cb82bb4b1f812d35, type: 3}
+      propertyPath: m_TagString
+      value: Strawberry
+      objectReference: {fileID: 0}
     - target: {fileID: 816771878465940967, guid: b6397cad46fb6c64cb82bb4b1f812d35, type: 3}
       propertyPath: m_Color.b
       value: 0.35088107
@@ -912,7 +916,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 286, y: 137}
+  m_AnchoredPosition: {x: 260, y: 126}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1555088340
@@ -1115,8 +1119,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1358636309, guid: b6397cad46fb6c64cb82bb4b1f812d35, type: 3}
+      propertyPath: m_TagString
+      value: WhippedCream
+      objectReference: {fileID: 0}
     - target: {fileID: 816771878465940965, guid: b6397cad46fb6c64cb82bb4b1f812d35, type: 3}
       propertyPath: m_Name
+      value: WhippedCream
+      objectReference: {fileID: 0}
+    - target: {fileID: 816771878465940965, guid: b6397cad46fb6c64cb82bb4b1f812d35, type: 3}
+      propertyPath: m_TagString
       value: WhippedCream
       objectReference: {fileID: 0}
     - target: {fileID: 816771878465940967, guid: b6397cad46fb6c64cb82bb4b1f812d35, type: 3}
