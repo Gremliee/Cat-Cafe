@@ -34,18 +34,26 @@ public class CounterTrig : MonoBehaviour
         if (detected == true && Input.GetKeyDown(KeyCode.Q) && FindObjectOfType<PlayerPickUp>().isPickup == true)
         {
             item = GameObject.FindWithTag("Item");
-            FindObjectOfType<PlayerPickUp>().NoPickUp();
-            item.transform.position = counterPosition.transform.position;
-            FindObjectOfType<PlayerPickUp>().isPickup = false;
-            if (FindObjectOfType<SpriteChange>().isChanged == false && tag != "RegularCounter")
-            {
-                ChangeSprite();
+
+            if (item != null) 
+            {             
+                FindObjectOfType<PlayerPickUp>().NoPickUp();
+                item.transform.position = counterPosition.transform.position;
+                FindObjectOfType<PlayerPickUp>().isPickup = false;
+               
+                if (FindObjectOfType<SpriteChange>().isChanged == false && tag != "RegularCounter")
+                {
+                    ChangeSprite();
+                }   
+                if (detected == true && FindObjectOfType<PlayerPickUp>().isPickup == false && Input.GetKeyDown(KeyCode.E))
+                {
+                    FindObjectOfType<PlayerPickUp>().isPickup = true;
+                }
             }
+
         }
-        if (detected == true && FindObjectOfType<PlayerPickUp>().isPickup == false && Input.GetKeyDown(KeyCode.E))
-        {
-            FindObjectOfType<PlayerPickUp>().isPickup = true;
-        }
+        
+        
     }
 
     public GameObject CounterPosition()

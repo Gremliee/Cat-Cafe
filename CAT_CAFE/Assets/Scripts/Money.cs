@@ -5,7 +5,7 @@ using TMPro;
 
 public class Money : MonoBehaviour
 {
-    bool outWindow = false;
+    public bool outWindow = false;
     [SerializeField] int currentMoney = 0;
 
     // Start is called before the first frame update
@@ -25,10 +25,6 @@ public class Money : MonoBehaviour
             outWindow = false;
             FindObjectOfType<WindowTrigger>().DestroyItem();
         }
-    }
 
-    public void YeetedOutWindow()
-    {
-        outWindow = true;
     }
 }

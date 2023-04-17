@@ -22,8 +22,8 @@ public class WindowTrigger : MonoBehaviour
         {
             item = GameObject.FindWithTag("Item");
             FindObjectOfType<PlayerPickUp>().isPickup = false;
-            FindObjectOfType<Money>().YeetedOutWindow();
-
+            FindObjectOfType<Money>().outWindow = true;
+            FindObjectOfType<Orders>().NewOrder();
             //Destroy(item);
 
         }

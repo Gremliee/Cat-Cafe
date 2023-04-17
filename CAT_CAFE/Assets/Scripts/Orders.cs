@@ -17,4 +17,17 @@ public class Orders : MonoBehaviour
     {
         
     }
+
+    public void NewOrder()
+    {
+        Destroy(gameObject);
+        yes();
+        FindObjectOfType<OrderSpawn>().isOrder = false;
+        Debug.Log("a");
+    }
+
+    IEnumerator yes()
+    {
+        yield return new WaitForSeconds(3);
+    }
 }

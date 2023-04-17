@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPickUp : MonoBehaviour
 {
-    public bool isTrigger = false;
+    [SerializeField] public bool isTrigger = false;
     public bool isPickup = false;
     Vector3 PlayerPosition;
     Vector2 ItemFinalPosition;
