@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class PlayerPickUp : MonoBehaviour
 {
-    [SerializeField] public bool isTrigger = false;
+    [SerializeField] bool isTrigger = false;
     public bool isPickup = false;
     Vector3 PlayerPosition;
     Vector2 ItemFinalPosition;
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
+
+    [SerializeField] bool cri = false;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player" && isPickup == false)
+        if (collision.CompareTag("Player") && isPickup == false)
         {
-            isTrigger = true;
+            //isTrigger = true;
+            cri = true;
             Debug.Log("das no good");
 
         } 
@@ -25,23 +28,24 @@ public class PlayerPickUp : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        isTrigger = false;
+        //isTrigger = false;
+        cri = false;
     }
 
     private void Update()
     {
-        if (isTrigger = true && Input.GetKeyDown(KeyCode.E))
+        if (cri = true && Input.GetKeyDown(KeyCode.E) && isPickup == false)
         {
-            isPickup = true;
+            //isPickup = true;
 
         }
-        if (isPickup == true)
+        if (isPickup == true )
         {
             GetComponent<Collider2D>().enabled = false;
             gameObject.transform.position = ItemFinalPosition;
             PlayerPosition = GameObject.FindWithTag("Player").transform.position;
             ItemFinalPosition = new Vector2(PlayerPosition.x + xOffset, PlayerPosition.y + yOffset);
-            FindObjectOfType<PlayerMovement>().PickedUp();
+            
         }
     }
 

@@ -18,11 +18,13 @@ public class WindowTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (detected == true && Input.GetKeyDown(KeyCode.Q) && FindObjectOfType<PlayerPickUp>().isPickup == true)
+        if (detected == true && Input.GetKeyDown(KeyCode.Q))
         {
             item = GameObject.FindWithTag("Item");
+            FindObjectOfType<YEetOrder>().OrderGOod(item.GetComponent<SpriteRenderer>().sprite);
             FindObjectOfType<PlayerPickUp>().isPickup = false;
             FindObjectOfType<Money>().outWindow = true;
+            FindObjectOfType<CakeSpawn>().spawned = false;
             FindObjectOfType<Orders>().NewOrder();
             //Destroy(item);
 

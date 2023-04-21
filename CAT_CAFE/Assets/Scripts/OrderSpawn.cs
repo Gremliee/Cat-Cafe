@@ -7,7 +7,7 @@ public class OrderSpawn : MonoBehaviour
 {
     [SerializeField] List<GameObject> foodOrder;
     [SerializeField] GameObject waypoint;
-
+    public int randomOrder;
     [SerializeField] public bool isOrder;
 
     // Start is called before the first frame update
@@ -19,20 +19,17 @@ public class OrderSpawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
         Spawn();
+        
     }
 
     private void Spawn()
     {
         if (isOrder == false)
         {
-            
-            GameObject fish = Instantiate(foodOrder[Random.Range(0, foodOrder.Count - 1)],
-            waypoint.transform.position, transform.rotation);
+            randomOrder = Random.Range(0, foodOrder.Count);
+            GameObject fish = Instantiate(foodOrder[randomOrder],waypoint.transform.position, transform.rotation);
             isOrder = true;
         }
-    }
-
-    
+    } 
 }

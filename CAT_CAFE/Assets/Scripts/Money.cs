@@ -21,10 +21,15 @@ public class Money : MonoBehaviour
         if (outWindow == true)
         {
             Debug.Log("yeet");
-            currentMoney =+FindObjectOfType<Food>().GetCost();
+            
             outWindow = false;
             FindObjectOfType<WindowTrigger>().DestroyItem();
         }
 
+    }
+
+    public void AddMoney()
+    {
+        currentMoney = +FindObjectOfType<Food>().GetCost();
     }
 }
