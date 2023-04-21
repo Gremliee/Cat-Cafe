@@ -126,7 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d1e1d8ffedd9142a023edcb744c655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 0
+  isTrigger: 1
   isPickup: 0
   xOffset: 1.03
   yOffset: 0
