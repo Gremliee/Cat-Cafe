@@ -8,6 +8,7 @@ public class WindowTrigger : MonoBehaviour
 
     [SerializeField] GameObject windowPosition;
     [SerializeField] GameObject item;
+    [SerializeField] List<Sprite> itemOrder;
 
     // Start is called before the first frame update
     void Start()
@@ -15,13 +16,23 @@ public class WindowTrigger : MonoBehaviour
         
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        detected = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        detected = false;
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (detected == true && Input.GetKeyDown(KeyCode.Q))
+        if (detected == true && Input.GetKeyDown(KeyCode.Q) && FindObjectOfType<PlayerPickUp>().isPickup == true)
         {
             item = GameObject.FindWithTag("Item");
-            FindObjectOfType<YEetOrder>().OrderGOod(item.GetComponent<SpriteRenderer>().sprite);
+            OrderGOod(item.GetComponent<SpriteRenderer>().sprite);
             FindObjectOfType<PlayerPickUp>().isPickup = false;
             FindObjectOfType<Money>().outWindow = true;
             FindObjectOfType<CakeSpawn>().spawned = false;
@@ -36,13 +47,13 @@ public class WindowTrigger : MonoBehaviour
         Destroy(item);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OrderGOod(Sprite sprite)
     {
-        detected = true;
-    }
+        if (sprite == (itemOrder[FindObjectOfType<OrderSpawn>().randomOrder]))
+        {
+            FindObjectOfType<Money>().AddMoney();
+            Debug.Log("H");
+        }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        detected = false;
     }
 }

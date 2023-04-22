@@ -5,7 +5,7 @@ using UnityEngine;
 public class CounterTrig : MonoBehaviour
 {
     bool detected = false;
-
+    public bool isChanged = false;
     //Store counter position in a variable
     [SerializeField] GameObject counterPosition;
     [SerializeField] GameObject item;
@@ -34,26 +34,40 @@ public class CounterTrig : MonoBehaviour
         if (detected == true && Input.GetKeyDown(KeyCode.Q) && FindObjectOfType<PlayerPickUp>().isPickup == true)
         {
             item = GameObject.FindWithTag("Item");
+            FindObjectOfType<PlayerPickUp>().isPickup = false;
 
             if (item != null) 
             {             
                 FindObjectOfType<PlayerPickUp>().NoPickUp();
                 item.transform.position = counterPosition.transform.position;
                 FindObjectOfType<PlayerPickUp>().isPickup = false;
+                
                
-                if (FindObjectOfType<SpriteChange>().isChanged == false && tag != "RegularCounter")
+                if (isChanged == false && tag != "RegularCounter")
                 {
-                    ChangeSprite();
+                    ChangeSprite(toppings);
+                    isChanged = true;
                 }   
-                if (detected == true && FindObjectOfType<PlayerPickUp>().isPickup == false && Input.GetKeyDown(KeyCode.E))
-                {
-                    FindObjectOfType<PlayerPickUp>().isPickup = true;
-                }
+                
             }
 
         }
+        if (detected == true && Input.GetKeyDown(KeyCode.E))
+        {
+            FindObjectOfType<PlayerPickUp>().isPickup = true;
+            
+        }
+
+        if (isChanged == true && item == null)
+        {
+            ChangedIsChanged();
+        }
         
-        
+    }
+
+    public void ChangedIsChanged()
+    {
+        isChanged = false;
     }
 
     public GameObject CounterPosition()
@@ -67,12 +81,9 @@ public class CounterTrig : MonoBehaviour
         return toppings;
     }
 
-    private void ChangeSprite()
+    private void ChangeSprite(Sprite sprite)
     {
-
-        FindObjectOfType<SpriteChange>().ItemChange(toppings);
-
+        item.GetComponent<SpriteRenderer>().sprite = sprite;
+        isChanged = true;
     }
-
-
 }

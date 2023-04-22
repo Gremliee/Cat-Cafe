@@ -10,33 +10,25 @@ public class PlayerPickUp : MonoBehaviour
     Vector2 ItemFinalPosition;
     [SerializeField] float xOffset;
     [SerializeField] float yOffset;
-
+    [SerializeField] int price = 10;
     [SerializeField] bool cri = false;
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && isPickup == false)
-        {
-            //isTrigger = true;
-            cri = true;
-            Debug.Log("das no good");
-
-        } 
-
+        cri = true;
         // run  a public function from the player script to tell player they are holding something
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        //isTrigger = false;
         cri = false;
     }
 
     private void Update()
     {
-        if (cri = true && Input.GetKeyDown(KeyCode.E) && isPickup == false)
+        if (cri == true && Input.GetKeyDown(KeyCode.E) && isPickup == false)
         {
-            //isPickup = true;
+            isPickup = true;
 
         }
         if (isPickup == true )
@@ -55,5 +47,8 @@ public class PlayerPickUp : MonoBehaviour
         Debug.Log("das");
     }
 
-
+    public int GetCost()
+    {
+        return price;
+    }
 }

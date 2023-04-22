@@ -30,6 +30,7 @@ public class OrderSpawn : MonoBehaviour
             randomOrder = Random.Range(0, foodOrder.Count);
             GameObject fish = Instantiate(foodOrder[randomOrder],waypoint.transform.position, transform.rotation);
             isOrder = true;
+            FindObjectOfType<CounterTrig>().ChangedIsChanged();
         }
     } 
 }

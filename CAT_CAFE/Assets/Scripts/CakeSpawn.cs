@@ -22,6 +22,7 @@ public class CakeSpawn : MonoBehaviour
         {
             spawned = true;
             GameObject cakeYay = Instantiate(cake, spawnerPosition.transform.position, transform.rotation);
+            FindObjectOfType<CounterTrig>().isChanged = false;
         }
     }
 }

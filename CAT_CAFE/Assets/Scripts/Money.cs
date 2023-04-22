@@ -30,6 +30,6 @@ public class Money : MonoBehaviour
 
     public void AddMoney()
     {
-        currentMoney = +FindObjectOfType<Food>().GetCost();
+        currentMoney += FindObjectOfType<PlayerPickUp>().GetCost();
     }
 }
