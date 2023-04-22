@@ -52,7 +52,7 @@ public class CounterTrig : MonoBehaviour
             }
 
         }
-        if (detected == true && Input.GetKeyDown(KeyCode.E))
+        if (detected == true && Input.GetKeyDown(KeyCode.E) && FindObjectOfType<PlayerPickUp>().isPickup == false)
         {
             FindObjectOfType<PlayerPickUp>().isPickup = true;
             
