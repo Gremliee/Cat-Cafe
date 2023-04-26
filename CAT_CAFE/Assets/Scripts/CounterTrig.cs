@@ -56,19 +56,15 @@ public class CounterTrig : MonoBehaviour
         {
             FindObjectOfType<PlayerPickUp>().isPickup = true;
             item = null;
+
         }
+
         if (isChanged == true && item == null)
         {
             ChangedIsChanged();
         }
+        
     }
-
-    public void AddToItemVariable(GameObject itemThing)
-    {
-        item = itemThing;
-
-    }
-
 
     public void ChangedIsChanged()
     {
@@ -92,5 +88,10 @@ public class CounterTrig : MonoBehaviour
         isChanged = true;
     }
 
-}
+    public void AddToItemVariable(GameObject itemThing)
+    {
+        item = itemThing;
 
+    }
+
+}
