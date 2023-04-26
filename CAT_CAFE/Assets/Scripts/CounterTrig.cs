@@ -50,7 +50,6 @@ public class CounterTrig : MonoBehaviour
                 }   
                 
             }
-
         }
         if (detected == true && Input.GetKeyDown(KeyCode.E) && item != null)
         {
@@ -93,5 +92,6 @@ public class CounterTrig : MonoBehaviour
         item = itemThing;
 
     }
+
 
 }
