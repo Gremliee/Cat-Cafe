@@ -52,10 +52,11 @@ public class CounterTrig : MonoBehaviour
             }
 
         }
-        if (detected == true && Input.GetKeyDown(KeyCode.E) && FindObjectOfType<PlayerPickUp>().isPickup == false)
+        if (detected == true && Input.GetKeyDown(KeyCode.E) && item != null)
         {
             FindObjectOfType<PlayerPickUp>().isPickup = true;
-            
+            item = null;
+
         }
 
         if (isChanged == true && item == null)
@@ -86,4 +87,11 @@ public class CounterTrig : MonoBehaviour
         item.GetComponent<SpriteRenderer>().sprite = sprite;
         isChanged = true;
     }
+
+    public void AddToItemVariable(GameObject itemThing)
+    {
+        item = itemThing;
+
+    }
+
 }
