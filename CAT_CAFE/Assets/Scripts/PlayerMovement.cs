@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
         var horizontal = Input.GetAxisRaw("Horizontal");
         var vertical = Input.GetAxisRaw("Vertical");
         transform.position += new Vector3(horizontal * Time.deltaTime * speed, vertical * Time.deltaTime * speed, 0);
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, -7.14f, 7.19f), Mathf.Clamp(transform.position.y, -4.4f, 4.18f));
     }
     
 }

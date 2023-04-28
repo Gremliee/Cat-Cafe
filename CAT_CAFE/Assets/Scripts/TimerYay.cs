@@ -13,30 +13,28 @@ public class TimerYay : MonoBehaviour
     void Start()
     {
         GetComponent<TextMeshProUGUI>().text = startingTime.ToString();
+        StartCoroutine(StartCountdown());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isZero == false) 
+        if(currCountdownValue <= 0)
         {
-            StartCoroutine(TimeToDie());
-
-        }
-
-        if(startingTime <= 0)
-        {
-            Debug.Log("Timer no");
-            isZero = true;
-            FindObjectOfType<Game>().WaitAndLoad(); 
+            FindObjectOfType<Game>().LoadGameOver();
         }
     }
 
-    private IEnumerator TimeToDie()
+    float currCountdownValue;
+    public IEnumerator StartCountdown(float countdownValue = 180)
     {
-        yield return new WaitForSeconds(1);
-
-        GetComponent<TextMeshProUGUI>().text = startingTime.ToString();
-
+        currCountdownValue = countdownValue;
+        while (currCountdownValue > 0)
+        {
+            GetComponent<TextMeshProUGUI>().text = currCountdownValue.ToString();
+            yield return new WaitForSeconds(1.0f);
+            currCountdownValue--;
+        }
+        Debug.Log("TIMES UP");
     }
 }

@@ -38,7 +38,6 @@ public class CounterTrig : MonoBehaviour
 
             if (item != null) 
             {             
-                FindObjectOfType<PlayerPickUp>().NoPickUp();
                 item.transform.position = counterPosition.transform.position;
                 FindObjectOfType<PlayerPickUp>().isPickup = false;
                 
