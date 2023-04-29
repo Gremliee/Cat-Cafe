@@ -12,20 +12,30 @@ public class Game : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void LoadGame()
+    public void LoadInstructions()
     {
         SceneManager.LoadScene(1);
     }
 
-    public void LoadGameOver()
+    public void LoadInstructions2()
     {
         SceneManager.LoadScene(2);
+    }
+
+    public void LoadGame()
+    {
+        SceneManager.LoadScene(3);
+    }
+
+    public void LoadGameOver()
+    {
+        SceneManager.LoadScene(4);
     }
 
     public IEnumerator WaitAndLoad()
     {
         yield return new WaitForSeconds(delayInSeconds);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(4);
     }
 
     public void QuitGame()
