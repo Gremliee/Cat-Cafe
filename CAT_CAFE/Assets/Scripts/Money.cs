@@ -2,13 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Money : MonoBehaviour
 {
     public bool outWindow = false;
-    [SerializeField] int currentMoney = 0;
-
+    [SerializeField] public int currentMoney = 0;
+    [SerializeField] TextMeshProUGUI text;
+    
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        SetUpSingleton();
+    }
+
+    private void SetUpSingleton()
+    {
+        if (FindObjectsOfType<Money>().Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
     void Start()
     {
         
@@ -17,7 +37,7 @@ public class Money : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<TextMeshProUGUI>().text = currentMoney.ToString();
+        
         if (outWindow == true)
         {
             Debug.Log("yeet");
@@ -31,5 +51,10 @@ public class Money : MonoBehaviour
     public void AddMoney()
     {
         currentMoney += FindObjectOfType<PlayerPickUp>().GetCost();
+    }
+
+    public int GetScore()
+    {
+        return currentMoney;
     }
 }
