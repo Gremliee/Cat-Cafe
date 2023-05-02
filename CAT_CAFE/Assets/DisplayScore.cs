@@ -19,4 +19,6 @@ public class DisplayScore : MonoBehaviour
         playerScore = gameStatus.currentMoney;
         GetComponent<TextMeshProUGUI>().text = playerScore.ToString();
     }
+
+
 }

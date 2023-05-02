@@ -15,11 +15,24 @@ public class Money : MonoBehaviour
     private void Awake()
     {
         SetUpSingleton();
+        SetUpAudioSingleTon();
     }
 
     private void SetUpSingleton()
     {
         if (FindObjectsOfType<Money>().Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+
+    private void SetUpAudioSingleTon()
+    {
+        if (FindObjectsOfType<Audio>().Length > 1)
         {
             Destroy(gameObject);
         }
