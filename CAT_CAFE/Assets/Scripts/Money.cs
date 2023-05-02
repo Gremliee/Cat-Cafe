@@ -70,4 +70,11 @@ public class Money : MonoBehaviour
     {
         return currentMoney;
     }
+
+    public void ResetMoney()
+    {
+
+        currentMoney = 0;
+
+    }
 }

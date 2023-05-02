@@ -26,7 +26,7 @@ public class TimerYay : MonoBehaviour
     }
 
     float currCountdownValue;
-    public IEnumerator StartCountdown(float countdownValue = 90)
+    public IEnumerator StartCountdown(float countdownValue = 80)
     {
         currCountdownValue = countdownValue;
         while (currCountdownValue > 0)

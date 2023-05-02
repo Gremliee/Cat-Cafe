@@ -25,6 +25,7 @@ public class Game : MonoBehaviour
     public void LoadGame()
     {
         SceneManager.LoadScene(3);
+        FindObjectOfType<Money>().ResetMoney();
     }
 
     public void LoadGameOver()
