@@ -34,10 +34,11 @@ public class PlayerPickUp : MonoBehaviour
         if (isPickup == true )
         {
             GetComponent<Collider2D>().enabled = false;
-            gameObject.transform.position = ItemFinalPosition;
+            
             PlayerPosition = GameObject.FindWithTag("Player").transform.position;
             ItemFinalPosition = new Vector2(PlayerPosition.x + xOffset, PlayerPosition.y + yOffset);
-            
+            gameObject.transform.position = ItemFinalPosition;
+
         }
     }
 
